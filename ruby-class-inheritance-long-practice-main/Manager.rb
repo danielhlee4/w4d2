@@ -14,7 +14,7 @@ class Manager < Employee
       worker = queue.shift
       bonus += worker.salary 
       if worker.is_a?(Manager)
-        queue << worker.employees
+        queue += worker.employees
       end
     end
     bonus * multiplier
