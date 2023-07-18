@@ -18,6 +18,7 @@ class Board
         @board[row][col] = val
     end
 
+    # -----version of move_piece with color parameter-----
     # def move_piece(color, start_pos, end_pos)
     #     # if the board start_pos is null piece or other players piece, raise error
     #     if @board[start_pos].is_a?(NullPiece) || @board[start_pos].color != color
@@ -33,9 +34,10 @@ class Board
     #     end
         
     # end
+
     def move_piece(start_pos, end_pos)
         # if the board start_pos is null piece or other players piece, raise error
-        # debugger
+        debugger
         if @board[start_pos].is_a?(NullPiece) 
             
             raise "error, invalid start position" 
@@ -53,5 +55,9 @@ class Board
     
 end
 
-# b = Board.new
-# b[0, 0] # => 'rook'
+
+b = Board.new
+p = Piece.new
+n = NullPiece.new
+
+b[0, 0] # => 'rook'
