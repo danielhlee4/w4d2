@@ -27,12 +27,12 @@ class Piece
 
   end
 
-  # def symbol(co)
-  #   @color = :white
-  # end
-
   # empty? method notes
   # symbol of null piece will be :empty
+  def empty?
+    return true if self.color == :empty
+    false
+  end
 
 end
 

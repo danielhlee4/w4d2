@@ -50,8 +50,4 @@ module Slideable
         end
         poss_moves
     end
-    private
-    def move_dirs
-
-    end
 end
