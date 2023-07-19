@@ -37,16 +37,16 @@ class Board
 
     def move_piece(start_pos, end_pos)
         # if the board start_pos is null piece or other players piece, raise error
-        debugger
-        if @board[start_pos].is_a?(NullPiece) 
+        # debugger
+        if self[start_pos].is_a?(NullPiece) 
             
             raise "error, invalid start position" 
         end
         # if end_pos contains current player's piece
-        if @board[end_pos].is_a?(NullPiece) 
+        if self[end_pos].is_a?(NullPiece) 
             # if move is succesful, render board to reflect the result
-            @board[start_pos] = @null_piece
-            @board[end_pos] = @piece
+            self[start_pos] = @null_piece
+            self[end_pos] = @piece
         else
             raise 'error, invalid end position'
         end
@@ -56,8 +56,17 @@ class Board
 end
 
 
-b = Board.new
-p = Piece.new
-n = NullPiece.new
+# b = Board.new
+# p = Piece.new
+# n = NullPiece.new
 
-b[0, 0] # => 'rook'
+# b[[0, 0]] = p
+# b[[0, 1]] = n
+# b.move_piece([0,0],[0,1])
+# # p b[[0,0]]
+# # p b[[0,1]]
+# p b
+# b.move_piece([0,0],[0,1])
+# # p b[[0,0]]
+# # p b[[0,1]]
+# p b
