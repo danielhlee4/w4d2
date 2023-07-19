@@ -11,31 +11,26 @@ module Slideable
         DIAGONAL_DIRS
     end
 
-    # def grow_unblocked_moves_in_dir(dx, dy)
-    #     moves = []
-    #     curr_pos = self.pos
-    #     x, y = curr_pos 
-    #     nxt_pos = [x + dx, y + dy]
-    #     while nxt_pos.valid? 
-    #      x, y = curr_pos 
-    #      nxt_pos = [x + dx, y + dy]
-    #       if nxt_pos.valid?   #if nxt_pos is valid, add it to the array of pos
-    #         moves << nxt_pos 
-    #       end
-    #      curr_pos = nxt_poss
-    #     end
-    #     moves
-    # end
+
 
     def grow_unblocked_moves_in_dir(dx, dy)
-        moves = []
-        curr_pos = self.pos
-        x, y = curr_pos 
-        # next_pos = [dx + x, dy + y]
-        next_x = dx + x
-        next_y = dy + y
+         moves = []
+         curr_pos = self.pos
+         x, y = curr_pos 
+         # next_pos = [dx + x, dy + y]
+         next_x = dx + x
+         next_y = dy + y
         until !@board[next_x][next_y].empty? || !inside_board?(next_x, next_y)
-
+            moves << [next_x, next_y] 
+            next_x += dx
+            next_y += dy
+        end
+        if !inside_board?(next_x, next_y)
+            return moves    
+        elsif @board[next_x][next_y].color == self.color 
+            return moves 
+        else 
+           return moves << [next_x, next_y]
         end
 
     end
