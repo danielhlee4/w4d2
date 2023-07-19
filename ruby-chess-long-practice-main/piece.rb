@@ -1,14 +1,17 @@
 class Piece
   attr_accessor :pos
-  def initialize #do we need parameters?
-    @color = symbol
+
+  SYMBOLS = [:white, :black, :empty]
+
+  def initialize(color, board, pos)
+    @color = color
     @board = Board.new
-    @pos = []
+    @pos = pos
   end
 
   def pos=(val) # assigns @pos, which is the piece's current position
     val.each do |coordinate|
-      @pos << coordinate
+      @pos = coordinate
     end
   end
 
@@ -23,6 +26,10 @@ class Piece
     valid_moves = []
 
   end
+
+  # def symbol(co)
+  #   @color = :white
+  # end
 
   # empty? method notes
   # symbol of null piece will be :empty
