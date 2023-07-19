@@ -20,7 +20,7 @@ module Slideable
          # next_pos = [dx + x, dy + y]
          next_x = dx + x
          next_y = dy + y
-        until !@board[next_x][next_y].empty? || !inside_board?(next_x, next_y)
+        until !@board[next_x][next_y].empty? || !inside_board?(next_x, next_y) # Pos not empty || Out of bounds
             moves << [next_x, next_y] 
             next_x += dx
             next_y += dy
@@ -41,12 +41,17 @@ module Slideable
         true
     end
 
-    def moves(move_dirs) # move_dirs is an array of 4 directions
+    def moves # move_dirs is an array of 4 directions
         poss_moves = []
+        #do we need to define move dirs so that it doesnt raise an error in specific cases?
         move_dirs.each do |dir|
             row, col = dir
             poss_moves += grow_unblocked_moves_in_dir(row, col)
         end
         poss_moves
+    end
+    private
+    def move_dirs
+
     end
 end
