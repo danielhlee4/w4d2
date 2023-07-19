@@ -4,7 +4,7 @@ require "byebug"
 class Board
     attr_accessor :board, :piece, :null_piece
     def initialize
-        @board = Array.new(8) { Array.new(8) }
+        @board = Array.new(8) {Array.new(8, NullPiece.new)}
         @piece = Piece.new #placeholder
         @null_piece = NullPiece.new
     end
